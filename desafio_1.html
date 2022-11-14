@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio de Lógica 1 - T.EX</title>
+</head>
+
+<body>
+
+    <h1>Desafio de Lógica 1 - T.EX</h1>
+
+</body>
+
+<script>
+
+    let sortArray = [0, 0, 0];
+    let numeroSorteado
+    let verificacao = []
+    let tries = 0;
+
+    for (let i = 0; i < 40; i++) {
+        verificar()
+    }
+
+    // SORTEIO DA ARRAY
+    function sorteioArrays() {
+        for (let i = 0; i < sortArray.length; i++) {
+            let numeroSorteado = parseInt(Math.random() * 3) + 1;
+            sortArray[i] = numeroSorteado;
+        }
+        return sortArray;
+        console.log(numeroSorteado);
+    }
+
+
+    // VERIFICAÇÃO SE OS NÚMEROS DAS ARRAYS SÃO IGUAIS
+    function verificar() {
+        let verificacao = [...sortArray];
+        sortArray = [...sorteioArrays()];
+
+        if (sortArray.every((v, i) => v === verificacao[i]) && tries < 3) {
+            tries++;
+            if (tries === 3) {
+                console.log("Parabéns, você abriu as três portas");
+            }
+            return console.log(`Porta ${tries}: aberta`);
+        }
+    }
+
+</script>
+
+</html>
